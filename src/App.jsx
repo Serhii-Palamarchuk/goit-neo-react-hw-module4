@@ -29,16 +29,23 @@ function App() {
         setLoading(true);
         setError(null);
         const data = await fetchImages(query, page, 15);
-        if (page === 1) {
-          setImages(data.results);
-        } else {
-          setImages((prev) => [...prev, ...data.results]);
-        }
-        setTotalPages(data.total_pages);
+        // 💡 Штучна пауза 500 мс
+        setTimeout(() => {
+          if (page === 1) {
+            setImages(data.results);
+          } else {
+            setImages((prev) => [...prev, ...data.results]);
+          }
+          setTotalPages(data.total_pages);
+          setLoading(false);
+        }, 500);
       } catch (err) {
         setError("Failed to fetch images");
       } finally {
-        setLoading(false);
+        // 💡 Штучна пауза 500 мс
+        setTimeout(() => {
+          setLoading(false);
+        }, 500);
       }
     };
 

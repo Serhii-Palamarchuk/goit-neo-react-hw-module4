@@ -8,7 +8,7 @@
 }
 .item {
   flex: 0 0 calc(20% - 16px); /* 4 колонки */
-  height: 250px;
+  height: 220px;
 }
 
 @media (max-width: 1200px) {
