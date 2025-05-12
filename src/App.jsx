@@ -28,7 +28,7 @@ function App() {
       try {
         setLoading(true);
         setError(null);
-        const data = await fetchImages(query, page);
+        const data = await fetchImages(query, page, 15);
         if (page === 1) {
           setImages(data.results);
         } else {
